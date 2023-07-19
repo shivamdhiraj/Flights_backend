@@ -14,4 +14,8 @@ router.post('/',
 router.get('/',
            AirplaneController.getAirplanes);
 
+// /api/v1/airplane GET
+router.get('/:id',
+           AirplaneController.getAirplane);
+
 module.exports = router;
