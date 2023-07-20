@@ -11,18 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      City.hasMany(models.Airport, {
+      this.hasMany(models.Airport, {
         foreignKey: 'cityId',
-        onDelete: 'CASCADE', // Add ON DELETE CASCADE option
-        onUpdate: 'CASCADE', // Add ON UPDATE CASCADE option
-      }); // Each city can have multiple airports
+        onDelete: 'CASCADE',
+      });
     }
   }
   City.init({
-    name: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    }
   }, {
     sequelize,
     modelName: 'City',

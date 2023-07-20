@@ -11,31 +11,30 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Airport.belongsTo(models.City, {
+      this.belongsTo(models.City, {
         foreignKey: 'cityId',
-        onDelete: 'CASCADE', // Add ON DELETE CASCADE option
-        onUpdate: 'CASCADE', // Add ON UPDATE CASCADE option
-      }); // Each airport belongs to a city
+      });
     }
   }
   Airport.init({
-    name :{
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: true
     },
-    code :{ 
+    code: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
+    },
+    address: {
+      type: DataTypes.STRING,
       unique: true,
     },
-    address:{
-      type: DataTypes.STRING,
-    },
-    cityId:{
+    cityId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Airport',
