@@ -43,7 +43,7 @@ async function getAirplanes(req,res){
 }
 
 /**
- * GET : /airplane/:id
+ * GET : /airplanes/:id
  */
 async function getAirplane(req,res){
     try {
